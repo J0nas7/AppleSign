@@ -6,6 +6,7 @@ var gulp    = require('gulp'),
 var styleSRC = './scss/template.scss';
 var styleDIST = './css/';
 var styleWatch = './scss/**/*.scss';
+var styleWatch2 = './scss/*.scss';
 
 gulp.task('style', function() {
     return gulp.src(styleSRC)
