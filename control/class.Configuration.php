@@ -5,9 +5,9 @@ require_once "control/class.Utilities.php";
 require_once "control/class.User.php";
 /*require_once "control/system/class.WebConfig.php";
 require_once "control/system/class.GlobalUnitArray.php";
-require_once "control/system/class.DatesTimes.php";
-require_once "control/system/class.Template.php";
-require_once "control/system/class.SendMail.php";*/
+require_once "control/system/class.DatesTimes.php";*/
+require_once "control/class.Template.php";
+//require_once "control/system/class.SendMail.php";
 
 class Configuration {
 
@@ -29,7 +29,7 @@ class Configuration {
   public $FooterbarType;
 
   public function __construct() {
-    $this->templateSkin = 3;
+    $this->templateSkin = 1;
     $this->Sitename = "Applesign";
     $this->Supportmail = "hej@applesign.dk";
 
@@ -38,8 +38,8 @@ class Configuration {
     $this->Utilities = new Utilities();
     //$this->DateTime = new DatesTimes();
     $this->User = new User($this);
-    /*$this->Template = new Template($this);
-    $this->Web = new Websiteinfo($this);*/
+    $this->Template = new Template($this);
+    /*$this->Web = new Websiteinfo($this);*/
     //$this->GlobalUnit = new GlobalUnitArray($this);
 
     $this->microtime_1 = microtime(true);
@@ -55,7 +55,7 @@ class Configuration {
     
     define("BASEDIR", $folder_level);
     define("PAGE", (isset($_GET['page']) ? $_GET['page'] : "workspace"));
-    define("APP_URL", ($_SERVER['HTTP_HOST'] == "localhost" ? "" : "https://app.applesign.dk/"));
+    define("APP_URL", ($_SERVER['HTTP_HOST'] == "localhost" ? "/" : "http://applesign.dk/"));
     define("CONTROL", "control/");
     define("PAGES", "pages/");
     define("MODEL", "model/");

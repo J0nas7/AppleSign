@@ -4,6 +4,3 @@ RewriteRule    ^([a-z]+)$                                           index.php?pa
 RewriteRule    ^([a-z]+)/([a-z0-9]+)$                               index.php?page=$1&view=$2                   [L,QSA]
 RewriteRule    ^([a-z]+)/([a-z0-9]+)/([a-z0-9]+)$                   index.php?page=$1&view=$2&show=$3           [L,QSA]
 RewriteRule    ^([a-z]+)/([a-z0-9]+)/([a-z0-9]+)/([a-zA-Z0-9_]+)$   index.php?page=$1&view=$2&show=$3&mode=$4   [L,QSA]
-
-RewriteCond %{HTTPS} !=on
-RewriteRule ^.*$ https://%{SERVER_NAME}%{REQUEST_URI} [R,L]

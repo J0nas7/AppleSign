@@ -40,7 +40,7 @@ $this->Template->TemplateLoadStylesheet($this->PAGE_LEVEL."login.css");*/
       </div>
     </form>
   </div>
-  <footerjs>
+  <footerjs style="display: none;">
     <script type="text/javascript" src="<?=TEMPLATE_URL;?>js/jQuery_min.3.3.1.js"></script>
     <script type="text/javascript">
       <?=$this->Template->TemplateLoadStylesheets;?>

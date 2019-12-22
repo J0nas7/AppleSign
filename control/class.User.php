@@ -16,9 +16,16 @@ class User {
         $UserSql = "SELECT * FROM ".DB_PREFIX."Users WHERE User_ID='".Profile_ID."' LIMIT 1";
     	$UserQuery = $Config->DB->dbquery($UserSql);
     	if ($Config->DB->dbcount($UserQuery)) {
-    		$this->Userinfo = $Config->DB->dbarray($UserQuery);
+        $this->Userinfo = $Config->DB->dbarray($UserQuery);
+        
+        if (isset($_SESSION['Workspace_ID'])) {
+          $this->Userinfo['Workspace_ID'] = $_SESSION['Workspace_ID'];
+        }
+        if (isset($_SESSION['Project_ID'])) {
+          $this->Userinfo['Project_ID'] = $_SESSION['Project_ID'];
+        }
 
-            define("iOWNER", Profile_ID == 1); // Owner of Applesign
+        define("iOWNER", Profile_ID == 1); // Owner of Applesign
     		define("iMEMBER", iUSER && $this->Userinfo['User_Level']);
     		define("iADMIN", iUSER && ($this->Userinfo['User_Level'] > 1 || iOWNER));
     		define("iSUPERADMIN", iUSER && ($this->Userinfo['User_Level'] > 2 || iOWNER));
@@ -41,19 +48,57 @@ class User {
 
   public function enterWorkspace($Workspace_ID, $Config_cc) {
     if (iUSER) {
-        $Wspcs = DB_PREFIX."Workspaces";
-        $Wspcs_A = DB_PREFIX."Workspace_Access";
-        $sql = "SELECT * FROM ".$Wspcs." INNER JOIN ".$Wspcs_A." ON ".$Wspcs.".Workspace_ID = ".$Wspcs_A.".Wspc_Workspace_ID WHERE ".$Wspcs_A.".Wspc_User_ID = ".$this->Userinfo['User_ID']." AND ".$Wspcs_A.".Wspc_Workspace_ID = ".$Workspace_ID." LIMIT 1";
+      $Wspcs = DB_PREFIX."Workspaces";
+      $Wspcs_A = DB_PREFIX."Workspace_Access";
+      $sql = "SELECT * FROM ".$Wspcs." INNER JOIN ".$Wspcs_A." ON ".$Wspcs.".Workspace_ID = ".$Wspcs_A.".Wspc_Workspace_ID WHERE ".$Wspcs_A.".Wspc_User_ID = ".$this->Userinfo['User_ID']." AND ".$Wspcs_A.".Wspc_Workspace_ID = ".$Workspace_ID." LIMIT 1";
+      $query = $this->Config_c->DB->dbquery($sql);
+      $count = $this->Config_c->DB->dbcount($query);
+      if ($count == 1) {
+          $_SESSION['Workspace_ID'] = $Workspace_ID;
+          $this->Config_c->Utilities->redirect("/projects");
+      } else if (!$count) {
+          $Config_cc->FooterbarMsg = "You don't have access to this workspace.";
+          $Config_cc->FooterbarType = "Error";
+      }
+    } else {
+      $Config_cc->FooterbarMsg = "You're not logged in.";
+      $Config_cc->FooterbarType = "Error";
+    }
+  }
+
+  public function deleteWorkspace($Workspace_ID, $Config_cc) {
+    if (iUSER) {
+      $Wspcs = DB_PREFIX."Workspaces";
+      $Wspcs_A = DB_PREFIX."Workspace_Access";
+      $sql = "SELECT * FROM ".$Wspcs." INNER JOIN ".$Wspcs_A." ON ".$Wspcs.".Workspace_ID = ".$Wspcs_A.".Wspc_Workspace_ID WHERE ".$Wspcs_A.".Wspc_User_ID = ".$this->Userinfo['User_ID']." AND ".$Wspcs_A.".Wspc_Workspace_ID = ".$Workspace_ID." LIMIT 1";
+      $query = $this->Config_c->DB->dbquery($sql);
+      $count = $this->Config_c->DB->dbcount($query);
+      if ($count == 1) {
+          $deleteWorkspaceSql = "DELETE FROM ".DB_PREFIX."Workspaces WHERE Workspace_ID='".$Workspace_ID."'";
+          $deleteWorkspaceQuery = $this->Config_c->DB->dbquery($deleteWorkspaceSql);
+          $this->Config_c->Utilities->redirect("/");
+      } else if (!$count) {
+          $Config_cc->FooterbarMsg = "You don't have rights to delete this workspace.";
+          $Config_cc->FooterbarType = "Error";
+      }
+    }
+  }
+
+  public function enterProject($Project_ID, $Config_cc) {
+    if (iUSER && isset($_SESSION['Workspace_ID'])) {
+        $sql = "SELECT * FROM ".DB_PREFIX."Projects WHERE Project_ID='".$Project_ID."' AND Workspace_ID='".$this->Userinfo['Workspace_ID']."' LIMIT 1";
         $query = $this->Config_c->DB->dbquery($sql);
         $count = $this->Config_c->DB->dbcount($query);
-        echo $count;
         if ($count == 1) {
-            $_SESSION['Workspace_ID'] = $Workspace_ID;
-            $this->Config_c->Utilities->redirect("/projects");
+            $_SESSION['Project_ID'] = $Project_ID;
+            $this->Config_c->Utilities->redirect("/todolists");
         } else if (!$count) {
-            $Config_cc->FooterbarMsg = "You don't have access to this workspace.";
+            $Config_cc->FooterbarMsg = "You don't have access to this project.";
             $Config_cc->FooterbarType = "Error";
         }
+    } else {
+      $Config_cc->FooterbarMsg = "You need to choose a workspace first.";
+      $Config_cc->FooterbarType = "Error";
     }
   }
 
