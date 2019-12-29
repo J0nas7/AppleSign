@@ -27,7 +27,7 @@ if (isset($_GET['edit']) && is_numeric($_GET['edit'])) {
                 $this->Utilities->redirect("/");
             } else {
                 $Error = true;
-                $ErrorMsg = "- There was a database error creating the workspace.<br>";
+                $ErrorMsg = "- There was a database error updating the workspace.<br>";
             }
         }
         if ($Error) {

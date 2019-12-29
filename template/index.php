@@ -26,11 +26,9 @@
                 <span class="x" id="two"></span>
             </span>
             <ul class="topmenu">
-                <li><a href="#">Start</a></li>
-                <li><a href="#">Start</a></li>
-                <li><a href="#">Start</a></li>
-                <li><a href="#">Start</a></li>
-                <li><a href="#">Start</a></li>
+                <li><a href="/?ref=tm">Workspaces</a></li>
+                <li><a href="/projects?ref=tm">Projects</a></li>
+                <li><a href="/todolists?ref=tm">Todolists</a></li>
             </ul>
         </div>
     </div>

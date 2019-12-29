@@ -21,6 +21,7 @@ class User {
         if (isset($_SESSION['Workspace_ID'])) {
           $this->Userinfo['Workspace_ID'] = $_SESSION['Workspace_ID'];
         }
+        
         if (isset($_SESSION['Project_ID'])) {
           $this->Userinfo['Project_ID'] = $_SESSION['Project_ID'];
         }
@@ -79,6 +80,26 @@ class User {
           $this->Config_c->Utilities->redirect("/");
       } else if (!$count) {
           $Config_cc->FooterbarMsg = "You don't have rights to delete this workspace.";
+          $Config_cc->FooterbarType = "Error";
+      }
+    }
+  }
+
+  public function deleteProject($Project_ID, $Config_cc) {
+    if (iUSER) {
+      $Wspcs = DB_PREFIX."Workspaces";
+      $Wspcs_A = DB_PREFIX."Workspace_Access";
+      $sql = "SELECT * FROM ".$Wspcs." INNER JOIN ".$Wspcs_A." ON ".$Wspcs.".Workspace_ID = ".$Wspcs_A.".Wspc_Workspace_ID WHERE ".$Wspcs_A.".Wspc_User_ID = ".$this->Userinfo['User_ID'];
+      $sql .= " AND ".$Wspcs_A.".Wspc_Workspace_ID = ".$this->Userinfo['Workspace_ID']." AND ".$Wspcs_A.".Wspc_Level > 1";
+      $sql .= " LIMIT 1";
+      $query = $this->Config_c->DB->dbquery($sql);
+      $count = $this->Config_c->DB->dbcount($query);
+      if ($count == 1) {
+          $deleteProjectSql = "DELETE FROM ".DB_PREFIX."Projects WHERE Project_ID='".$Project_ID."'";
+          $deleteProjectQuery = $this->Config_c->DB->dbquery($deleteProjectSql);
+          $this->Config_c->Utilities->redirect("/projects");
+      } else if (!$count) {
+          $Config_cc->FooterbarMsg = "You don't have rights to delete this project.";
           $Config_cc->FooterbarType = "Error";
       }
     }

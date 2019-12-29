@@ -33,6 +33,12 @@ body {
     position: fixed;
     z-index: 1;
 
+    .topbar-center {
+        @media (min-width: 500px) {
+            padding: 0 20px;
+        }
+    }
+
     .logo {
         width: 86px;
         height: 45px;
@@ -50,6 +56,11 @@ body {
         color: #fff;
         padding-top: 12px;
         padding-left: 12px;
+        display:  none;
+
+        @media (min-width: 233px) {
+            display: block;
+        }
     }
 
     .menuTrigger {
@@ -60,6 +71,10 @@ body {
         width: 35px;
         height: 35px;
         position: relative;
+
+        @media (min-width: 500px) {
+            display: none;
+        }
 
         .hamburger {
             width: 35px;
@@ -121,11 +136,31 @@ body {
         padding: 10px 20px;
         transition: 0.4s;
 
+        @media (min-width: 500px) {
+            position: relative;
+            left: 0;
+            top: 0;
+            float: right;
+            width: auto;
+            padding: 10px 0;
+            transition: 0s;
+        }
+
         li {
             display: block;
             width: 100%;
             text-align: left;
             padding: 5px 0;
+
+            @media (min-width: 500px) {
+                float: left;
+                width: auto;
+                margin-right: 15px;
+
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
 
             a {
                 color: #fff;
@@ -417,6 +452,39 @@ body.cover {
     display: block;
     float: left;
     margin-right: 10px;
+}
+
+.smallUpdate {
+    float: left;
+    margin-bottom: 8px;
+    margin-top: -5px;
+
+    &.list {
+        width: calc(100% - 25px);
+    }
+    &.task {
+        width: calc(100% - 61px);
+
+        .button {
+            float: right;
+        }
+
+        .inputField {
+            margin-bottom: 7px;
+        }
+    }
+
+    .inputField {
+        width: calc(100% - 37.05px);
+        background: #c4c4c4;
+        padding: 6px;
+    }
+
+    .button {
+        background: #efefef;
+        padding: 5px;
+        border: 1px #999 solid;
+    }
 }
 
 .CRUD {
