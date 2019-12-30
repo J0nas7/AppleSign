@@ -1,6 +1,10 @@
 <?php
 $this->LoadModel("Project");
 
+if (!isset($this->User->Userinfo['Workspace_ID'])) {
+    $this->Utilities->redirect("/");
+}
+
 $displayAll = true;
 if (isset($_GET['action'])) {
     $action = $_GET['action'];
@@ -10,6 +14,9 @@ if (isset($_GET['action'])) {
     } else if ($action == "edit") {
         $displayAll = false;
         require_once "editProject.php";
+    } else if ($action == "timespent") {
+        $displayAll = false;
+        require_once "timeSpent.php";
     }
 }
 

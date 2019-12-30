@@ -4,8 +4,7 @@ require_once "control/class.Database.php";
 require_once "control/class.Utilities.php";
 require_once "control/class.User.php";
 /*require_once "control/system/class.WebConfig.php";
-require_once "control/system/class.GlobalUnitArray.php";
-require_once "control/system/class.DatesTimes.php";*/
+require_once "control/system/class.GlobalUnitArray.php";*/
 require_once "control/class.Template.php";
 //require_once "control/system/class.SendMail.php";
 
@@ -15,15 +14,11 @@ class Configuration {
   public $DB;
   public $User;
   public $Web;
-  public $GlobalUnit;
   public $PAGE_LEVEL;
   public $Template;
   public $templateSkin;
-  public $templateSkin1;
-  public $templateSkin2;
   public $Sitename;
   public $Supportmail;
-  public $DateTime;
   public $microtime_1;
   public $FooterbarMsg;
   public $FooterbarType;
@@ -36,7 +31,6 @@ class Configuration {
     $this->DB = DatabaseConfig::getInstance();
     //$this->SendMail = new SendMail();
     $this->Utilities = new Utilities();
-    //$this->DateTime = new DatesTimes();
     $this->User = new User($this);
     $this->Template = new Template($this);
     /*$this->Web = new Websiteinfo($this);*/
@@ -123,25 +117,6 @@ class Configuration {
   		include $filename;
   	} else {
     }
-  }
-
-  public function LoadJS($Src) {
-    die("Opdater til template-loading af JS");
-    return;
-  	//echo '<script type="text/javascript" src="'.$Src.'"></script>';
-  }
-
-  public function LoadCSS($Href) {
-    die("Opdater til template-loading af CSS");
-    return;
-    //echo '<link rel="stylesheet" media="screen" href="'.$Href.'?t='.time().'" />';
-  }
-
-  public function LoadStylesheet($Href, $relative = "") {
-    die("Opdater til template-loading af Stylesheet");
-    return;
-    /*if ($relative == "template") { $Href = "/".TEMPLATE."stylesheet/".$Href; }
-    echo '<link rel="stylesheet" media="screen" href="'.$Href.'?t='.time().'" />';*/
   }
 
 }

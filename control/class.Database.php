@@ -61,15 +61,8 @@ class DatabaseConfig {
   }
 
   // Outputs a query from a sql string
-  public function dbquery($query, $optional = "") {
-  	//global $sql_connect, $mysql_queries_count, $mysql_queries_time; $mysql_queries_count++;
-
-  	//$query_time = get_microtime();
+  public function dbquery($query) {
   	$result = $this->DatabaseConnect->query($query);
-  	//$query_time = substr((get_microtime() - $query_time),0,7);
-
-  	//$mysql_queries_time[$mysql_queries_count] = array($query_time, $query, $optional);
-
   	if (!$result) {
   		echo $this->DatabaseConnect->error;
   		return false;

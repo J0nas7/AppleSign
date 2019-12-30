@@ -5,7 +5,12 @@ $projectCount = $this->DB->dbcount($projectQuery);
 if ($projectCount) {
     $theProject = $this->DB->dbarray($projectQuery);
     ?>
-    <span class="pageHeader"><?=$theProject['Project_Title'];?></span>
+    <span class="pageHeader">
+        <span class="title"><?=$theProject['Project_Title'];?></span>
+        <a href="?action=timespent" class="stopwatch project">
+            <span class="txt">See time spent on the project</span>
+        </a>
+    </span>
     <span class="pageHeader">Work</span>
     <div class="mainContent mostused">
         <div class="mostused-controllers">

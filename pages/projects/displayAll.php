@@ -1,4 +1,9 @@
-<span class="pageHeader">Projects</span>
+<span class="pageHeader">
+    <span class="title">Projects</span>
+    <a href="?action=timespent" class="stopwatch workspace">
+        <span class="txt">See time spent for the entire workspace</span>
+    </a>
+</span>
 <div class="mainContent">
     <?php
     $sql = "SELECT * FROM ".DB_PREFIX."Projects WHERE Workspace_ID='".$this->User->Userinfo['Workspace_ID']."'";

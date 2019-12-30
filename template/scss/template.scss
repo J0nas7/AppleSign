@@ -20,6 +20,10 @@ ul {
     list-style-type: none;
 }
 
+th {
+    text-align: left;
+}
+
 body {
     background: #dedede;
     font-family: Verdana, sans-serif;
@@ -283,6 +287,31 @@ body.cover {
         display: block;
         margin: 20px 0;
         clear: left;
+
+        .stopwatch {
+            float: right;
+            height: 30px;
+            display: block;
+            background: url(../img/stopwatch.png) no-repeat;
+            font-size: 15px;
+            background-position: right;
+            padding-top: 7px;
+            cursor: pointer;
+
+            &.workspace {
+                width: 300px;
+            }
+            &.project {
+                width: 230px;
+            }
+
+            .txt {
+                display: none;
+            }
+            &:hover .txt {
+                display: block;
+            }
+        }
     }
 
     .pageHeader:first-child {
@@ -500,6 +529,8 @@ body.cover {
         width: 270px;
         padding: 5px;
         margin: 8px 0;
+        float: left;
+        clear: both;
     }
 
     .inputField {
@@ -517,6 +548,8 @@ body.cover {
         padding: 5px;
         font-size: 14px;
         margin-top: 12px;
+        float: left;
+        clear: both;
     }
 
     .taskAbortLink {
