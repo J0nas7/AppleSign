@@ -3,10 +3,7 @@ if (!defined("IN_APP")) { die("Access denied"); }
 require_once "control/class.Database.php";
 require_once "control/class.Utilities.php";
 require_once "control/class.User.php";
-/*require_once "control/system/class.WebConfig.php";
-require_once "control/system/class.GlobalUnitArray.php";*/
 require_once "control/class.Template.php";
-//require_once "control/system/class.SendMail.php";
 
 class Configuration {
 
@@ -29,12 +26,9 @@ class Configuration {
     $this->Supportmail = "hej@applesign.dk";
 
     $this->DB = DatabaseConfig::getInstance();
-    //$this->SendMail = new SendMail();
     $this->Utilities = new Utilities();
     $this->User = new User($this);
     $this->Template = new Template($this);
-    /*$this->Web = new Websiteinfo($this);*/
-    //$this->GlobalUnit = new GlobalUnitArray($this);
 
     $this->microtime_1 = microtime(true);
 
