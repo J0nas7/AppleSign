@@ -13,7 +13,7 @@
         ?>
             <li class="workspace">
                 <span class="name_desc">
-                    <a href="/?ref=wspLink&set=<?=$Workspace->getWorkspace_ID();?>">
+                    <a href="<?=APP_URL;?>/?ref=wspLink&set=<?=$Workspace->getWorkspace_ID();?>">
                         <strong><?=$Workspace->getWorkspace_Name();?></strong>
                         <span> - <?=$Workspace->getWorkspace_Description();?></span>
                     </a>
@@ -25,8 +25,8 @@
                         <span class="trigger trigger3"></span>
                     </span>
                     <span class="actionGroup">
-                        <a class="btn" href="/?ref=actW&action=edit&edit=<?=$Workspace->getWorkspace_ID();?>">&#x270E; Edit</a>
-                        <a class="btn" href="/?ref=actW&del=<?=$Workspace->getWorkspace_ID();?>">x Delete</a>
+                        <a class="btn" href="<?=APP_URL;?>/?ref=actW&action=edit&edit=<?=$Workspace->getWorkspace_ID();?>">&#x270E; Edit</a>
+                        <a class="btn" href="<?=APP_URL;?>/?ref=actW&del=<?=$Workspace->getWorkspace_ID();?>">x Delete</a>
                     </span>
                 </span>
             </li>
@@ -44,7 +44,7 @@
         ?>
     </ul>
     <div class="bigCreateBtn">
-        <a href="/?ref=bigBtn&action=create">
+        <a href="<?=APP_URL;?>/?ref=bigBtn&action=create">
             <span class="btn">+</span>
             <span class="txt">Create new workspace</span>
         </a>

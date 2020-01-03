@@ -16,7 +16,7 @@
         ?>
             <li class="project">
                 <span class="name_desc">
-                    <a href="/projects?set=<?=$Project->getProject_ID();?>">
+                    <a href="<?=APP_URL;?>/projects?set=<?=$Project->getProject_ID();?>">
                         <strong><?=$Project->getProject_Title();?></strong>
                         <span> - <?=$Project->getProject_Description();?></span>
                     </a>
@@ -28,8 +28,8 @@
                         <span class="trigger trigger3"></span>
                     </span>
                     <span class="actionGroup">
-                        <a class="btn" href="/projects?ref=actP&action=edit&edit=<?=$Project->getProject_ID();?>">&#x270E; Edit</a>
-                        <a class="btn" href="/projects?ref=actP&del=<?=$Project->getProject_ID();?>">x Delete</a>
+                        <a class="btn" href="<?=APP_URL;?>/projects?ref=actP&action=edit&edit=<?=$Project->getProject_ID();?>">&#x270E; Edit</a>
+                        <a class="btn" href="<?=APP_URL;?>/projects?ref=actP&del=<?=$Project->getProject_ID();?>">x Delete</a>
                     </span>
                 </span>
             </li>
@@ -47,7 +47,7 @@
         ?>
     </ul>
     <div class="bigCreateBtn">
-        <a href="/projects?action=create" class="btn">+</a>
-        <a href="/projects?action=create" class="txt">Create new project</a>
+        <a href="<?=APP_URL;?>/projects?action=create" class="btn">+</a>
+        <a href="<?=APP_URL;?>/projects?action=create" class="txt">Create new project</a>
     </div>
 </div>

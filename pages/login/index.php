@@ -21,7 +21,7 @@ $this->Template->TemplateLoadStylesheet($this->PAGE_LEVEL."login.css");*/
     <form action="" method="post" class="Loginform">
       <div class="logo-container">
         <span class="logo-span">
-          <img src="/template/img/topbar-logo.png" />
+          <img src="/applesign/template/img/topbar-logo.png" />
         </span>
       </div>
       <?

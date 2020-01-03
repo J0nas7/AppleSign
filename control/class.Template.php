@@ -30,7 +30,7 @@ class Template {
       var link = $("<link />",{
         rel: "stylesheet",
         type: "text/css",
-        href: "'.$Href.'"
+        href: "/applesign'.$Href.'"
       });
       $("head").append(link);
     ';

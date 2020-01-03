@@ -30,7 +30,7 @@ if (isset($_POST['Create'])) {
     <input class="inputField Task" type="text" name="Task" value="" placeholder="Title of task" />
     <input class="inputField" type="text" name="Description" value="" placeholder="Optional description" />
     <input class="button" type="submit" name="Create" value="Create task" />
-    <span class="taskAbortLink">Or <a href="/todolists">I'm done adding tasks.</a></span>
+    <span class="taskAbortLink">Or <a href="<?=APP_URL;?>/todolists">I'm done adding tasks.</a></span>
     
     <?php if (isset($ErrorMsg)) { ?>
         <div class="ErrorMsg"><?=$ErrorMsg;?></div>

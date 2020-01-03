@@ -43,7 +43,7 @@ class Configuration {
     
     define("BASEDIR", $folder_level);
     define("PAGE", (isset($_GET['page']) ? $_GET['page'] : "workspace"));
-    define("APP_URL", ($_SERVER['HTTP_HOST'] == "localhost" ? "/" : "http://applesign.dk/"));
+    define("APP_URL", ($_SERVER['HTTP_HOST'] == "localhost" ? "/" : "http://seobetter.dk/applesign/"));
     define("CONTROL", "control/");
     define("PAGES", "pages/");
     define("MODEL", "model/");

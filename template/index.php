@@ -16,7 +16,7 @@
     <div class="Bodycover with-bg"></div>
     <div class="topbar">
         <div class="topbar-center">
-            <a class="logo" href="/?ref=logo"></a>
+            <a class="logo" href="<?=APP_URL;?>/?ref=logo"></a>
             <span class="applesign">Applesign</span>
             <span class="menuTrigger">
                 <span class="hamburger" id="one"></span>
@@ -26,9 +26,9 @@
                 <span class="x" id="two"></span>
             </span>
             <ul class="topmenu">
-                <li><a href="/?ref=tm">Workspaces</a></li>
-                <li><a href="/projects?ref=tm">Projects</a></li>
-                <li><a href="/todolists?ref=tm">Todolists</a></li>
+                <li><a href="<?=APP_URL;?>/?ref=tm">Workspaces</a></li>
+                <li><a href="<?=APP_URL;?>/projects?ref=tm">Projects</a></li>
+                <li><a href="<?=APP_URL;?>/todolists?ref=tm">Todolists</a></li>
             </ul>
         </div>
     </div>

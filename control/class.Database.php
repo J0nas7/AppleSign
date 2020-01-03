@@ -10,10 +10,10 @@ class DatabaseConfig {
     if ($this->stripget($_GET)) { die("Prevented a XSS attack through a GET variable!"); }
 
     // Database configuration start
-    $Servername = "mysql35.unoeuro.com";
-    $Username = "applesign_dk";
-    $Password = "rnceh2za";
-    $Databasename = "applesign_dk_db";
+    $Servername = "mysql78.unoeuro.com";
+    $Username = "seobetter_dk";
+    $Password = "5p9hwx4y2f";
+    $Databasename = "seobetter_dk_db";
 
     $this->DatabaseConnect = new mysqli($Servername, $Username, $Password, $Databasename);
     unset($Servername, $Username, $Password, $Databasename);

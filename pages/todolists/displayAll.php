@@ -95,8 +95,8 @@ if ($projectCount) {
                             <span class="trigger trigger3"></span>
                         </span>
                         <span class="actionGroup">
-                            <a class="btn" href="/todolists?ref=actT&action=editL&edit=<?=$TodoList['Todolist_ID'];?>">&#x270E; Edit</a>
-                            <a class="btn" href="/todolists?ref=actT&delL=<?=$TodoList['Todolist_ID'];?>">x Delete</a>
+                            <a class="btn" href="<?=APP_URL;?>/todolists?ref=actT&action=editL&edit=<?=$TodoList['Todolist_ID'];?>">&#x270E; Edit</a>
+                            <a class="btn" href="<?=APP_URL;?>/todolists?ref=actT&delL=<?=$TodoList['Todolist_ID'];?>">x Delete</a>
                         </span>
                     </span>
                 </span>
@@ -147,8 +147,8 @@ if ($projectCount) {
                                         <span class="trigger trigger3"></span>
                                     </span>
                                     <span class="actionGroup">
-                                        <a class="btn" href="/todolists?ref=actT&action=editT&edit=<?=$Task['Task_ID'];?>">&#x270E; Edit</a>
-                                        <a class="btn" href="/todolists?ref=actT&delT=<?=$Task['Task_ID'];?>">x Delete</a>
+                                        <a class="btn" href="<?=APP_URL;?>/todolists?ref=actT&action=editT&edit=<?=$Task['Task_ID'];?>">&#x270E; Edit</a>
+                                        <a class="btn" href="<?=APP_URL;?>/todolists?ref=actT&delT=<?=$Task['Task_ID'];?>">x Delete</a>
                                     </span>
                                 </span>
                             </span>
@@ -169,8 +169,8 @@ if ($projectCount) {
                 if ($displayBtn) {
                 ?>
                 <div class="smallCreateBtn">
-                    <a href="/todolists?action=createTask&listId=<?=$TodoList['Todolist_ID'];?>" class="btn">+</a>
-                    <a href="/todolists?action=createTask&listId=<?=$TodoList['Todolist_ID'];?>" class="txt">Create new task</a>
+                    <a href="<?=APP_URL;?>/todolists?action=createTask&listId=<?=$TodoList['Todolist_ID'];?>" class="btn">+</a>
+                    <a href="<?=APP_URL;?>/todolists?action=createTask&listId=<?=$TodoList['Todolist_ID'];?>" class="txt">Create new task</a>
                 </div>
                 <?php
                 }
@@ -181,8 +181,8 @@ if ($projectCount) {
         ?>
         <div class="clrBth"></div>
         <div class="bigCreateBtn">
-            <a href="/todolists?action=create" class="btn">+</a>
-            <a href="/todolists?action=create" class="txt">Create new todolist</a>
+            <a href="<?=APP_URL;?>/todolists?action=create" class="btn">+</a>
+            <a href="<?=APP_URL;?>/todolists?action=create" class="txt">Create new todolist</a>
         </div>
         <div class="clrBth"></div>
     </div>
