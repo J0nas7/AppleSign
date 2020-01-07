@@ -21,7 +21,7 @@ class DatabaseConfig {
     	die('Kunne ikke forbinde til database ('.$this->DatabaseConnect->connect_errno.') '.$this->DatabaseConnect->connect_error);
     }
     $this->DatabaseConnect->set_Charset("utf8");
-    define("DB_PREFIX", "App_");
+    define("DB_PREFIX", "Aps_");
     // Database configuration end
   }
 

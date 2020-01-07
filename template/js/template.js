@@ -131,7 +131,7 @@ function stopCurrentTask() {
 }
 
 window.BackendAJAXcall = function (AjaxUrl, customData, _callback = "") {
-    AjaxUrl = "/backend/index.php?w=API&"+AjaxUrl;
+    AjaxUrl = "/applesign/backend/index.php?w=API&"+AjaxUrl;
 	$.ajax({
 		type: 'POST',
 		url: AjaxUrl,
