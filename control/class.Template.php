@@ -24,13 +24,13 @@ class Template {
   }
 
   function TemplateLoadStylesheet($Href, $relativeTo = "") {
-    if ($relativeTo == "template") { $Href = "/".TEMPLATE."css/".$Href; }
+    if ($relativeTo == "template") { $Href = "/applesign/".TEMPLATE."css/".$Href; }
     if ($relativeTo !== "-t") { $Href .= "?t=".time(); }
     $this->TemplateLoadStylesheets .= '
       var link = $("<link />",{
         rel: "stylesheet",
         type: "text/css",
-        href: "/applesign'.$Href.'"
+        href: "'.$Href.'"
       });
       $("head").append(link);
     ';
