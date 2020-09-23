@@ -12,7 +12,7 @@ class DatabaseConfig {
     // Database configuration start
     $Servername = "mysql78.unoeuro.com";
     $Username = "seobetter_dk";
-    $Password = "5p9hwx4y2f";
+    $Password = "xxxx";
     $Databasename = "seobetter_dk_db";
 
     $this->DatabaseConnect = new mysqli($Servername, $Username, $Password, $Databasename);
